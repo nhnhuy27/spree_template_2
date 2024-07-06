@@ -27,7 +27,6 @@ services:
   - type: worker
     name: spree-worker
     runtime: ruby
-    plan: free
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec rake solid_queue:start"
     envVars:
