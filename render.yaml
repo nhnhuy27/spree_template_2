@@ -22,11 +22,11 @@ services:
           type: redis
           name: spree-redis
           property: connectionString
-          plan: free
       - fromGroup: spree-settings
   - type: worker
     name: spree-worker
     runtime: ruby
+    plan: free
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec rake solid_queue:start"
     envVars:
