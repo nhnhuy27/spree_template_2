@@ -27,7 +27,6 @@ services:
   - type: worker
     name: spree-worker
     runtime: ruby
-    plan: free
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec rake solid_queue:start"
     envVars:
@@ -40,10 +39,10 @@ services:
           type: redis
           name: spree-redis
           property: connectionString
-          plan: free
       - fromGroup: spree-settings
   - type: redis # we only need redis for action cable, in future Rails versions this will be optional
     name: spree-redis
+    plan: free
     ipAllowList: [] # only allow internal connections
 
 envVarGroups:
