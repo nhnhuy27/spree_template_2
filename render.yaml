@@ -2,6 +2,7 @@ databases:
   - name: spree-db
     databaseName: spree
     user: spree
+    plan: free
 
 services:
   - type: web
@@ -21,6 +22,7 @@ services:
           type: redis
           name: spree-redis
           property: connectionString
+          plan: free
       - fromGroup: spree-settings
   - type: worker
     name: spree-worker
